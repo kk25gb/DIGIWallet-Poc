@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find d:/dev/DigitWallet/TWDIW-poc/issuer-ap/frontend/src -type f \\\\\\(-name *.vue -o -name *.ts -o -name *.js \\\\\\))"
+    ]
+  }
+}

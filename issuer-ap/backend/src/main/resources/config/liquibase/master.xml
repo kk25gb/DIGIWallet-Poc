@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <property name="now" value="now()" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql"/>
+    <property name="uuidType" value="uuid" dbms="postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000001_issuer_ap_initial_schema.xml"
+             relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000002_add_ap_issuer_did_table.xml"
+             relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000003_add_ap_credential_type_table.xml"
+             relativeToChangelogFile="false"/>
+
+</databaseChangeLog>

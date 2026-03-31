@@ -1,0 +1,12 @@
+package gov.modadw.issuer.security;
+
+public final class AuthoritiesConstants {
+
+  public static final String ADMIN = "ROLE_ADMIN";
+
+  public static final String OPERATOR = "ROLE_OPERATOR";
+
+  public static final String ANONYMOUS = "ROLE_ANONYMOUS";
+
+  private AuthoritiesConstants() {}
+}

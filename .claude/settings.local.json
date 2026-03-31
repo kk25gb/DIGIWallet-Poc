@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs wc:*)",
+      "Bash(grep -l \"getCredential\\\\|sendPostRequest\\\\|token\\\\|qr-code\" \"d:\\\\dev\\\\DigitWallet\\\\TWDIW-poc\\\\core-system\\\\twdiw-oid4vci-handler\\\\src\\\\main\\\\java\\\\gov\\\\moda\\\\dw\\\\issuer\\\\oidvci\\\\service\"/*.java)",
+      "Bash(mkdir -p \"d:/dev/DigitWallet/TWDIW-poc/issuer-ap/backend/src/main/java/gov/modadw/issuer/security/filter\")",
+      "Bash(mkdir -p \"d:/dev/DigitWallet/TWDIW-poc/issuer-ap/backend/src/main/java/gov/modadw/issuer/service/did\")",
+      "Bash(mkdir -p \"d:/dev/DigitWallet/TWDIW-poc/issuer-ap/backend/src/main/java/gov/modadw/issuer/service/did/dto\")",
+      "Bash(mkdir -p \"d:/dev/DigitWallet/TWDIW-poc/issuer-ap/backend/src/main/java/gov/modadw/issuer/web/rest/callback\")",
+      "Bash(mkdir -p \"d:/dev/DigitWallet/TWDIW-poc/issuer-ap/frontend/src/views/did-register\")",
+      "Bash(find /d/dev/DigitWallet/TWDIW-poc/core-system/twdiw-oid4vci-handler -name *liquibase* -o -name *changelog*)",
+      "Bash(find d:devDigitWalletTWDIW-poccore-systemtwdiw-vc-handler -name *FunctionSwitch* -type f)",
+      "Bash(find d:/dev/DigitWallet/TWDIW-poc/issuer-ap/backend/src -type f -name *.java)"
+    ]
+  }
+}

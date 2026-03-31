@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="00000000000002-1" author="issuer-ap">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ap_issuer_did" schemaName="issuer_ap"/>
+            </not>
+        </preConditions>
+
+        <createSequence sequenceName="ap_issuer_did_id_seq" schemaName="issuer_ap"
+                        startValue="1" incrementBy="1"/>
+
+        <createTable tableName="ap_issuer_did" schemaName="issuer_ap">
+            <column name="id" type="BIGINT" defaultValueSequenceNext="ap_issuer_did_id_seq">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="did_id" type="VARCHAR(500)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_ap_issuer_did_did_id"/>
+            </column>
+            <column name="did_jwt" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="did_document" type="jsonb">
+                <constraints nullable="true"/>
+            </column>
+            <column name="org" type="jsonb">
+                <constraints nullable="true"/>
+            </column>
+            <column name="org_type" type="INTEGER" defaultValueNumeric="1">
+                <constraints nullable="true"/>
+            </column>
+            <column name="p7data" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="VARCHAR(20)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP" defaultValueComputed="NOW()">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,33 @@
+logging:
+  level:
+    ROOT: INFO
+    gov.modadw.issuer: DEBUG
+    org.hibernate.SQL: DEBUG
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/modadw_issuer}
+    username: ${SPRING_DATASOURCE_USERNAME:modadw_issuer}
+    password: ${SPRING_DATASOURCE_PASSWORD:modadw}
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  liquibase:
+    contexts: dev
+
+app:
+  cors:
+    allowed-origins: "http://localhost:5173"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    allow-credentials: true
+  security:
+    jwt:
+      # Dev only - generate with: openssl rand -base64 64
+      base64-secret: ${AP_JWT_BASE64_SECRET:YTJkNGYxMjM0NTY3ODkwYWJjZGVmMDEyMzQ1Njc4OTBhYmNkZWYwMTIzNDU2Nzg5MGFiY2RlZjAxMjM0NTY3ODkwYWJjZGVmMDEyMzQ1Njc4OTBhYmNkZWYwMTIzNA==}
+
+integration:
+  callback:
+    # Dev only - must match core-system's access_token.frontend.register_did setting
+    access-token: ${CALLBACK_ACCESS_TOKEN:dev-callback-token-change-me}

@@ -1,0 +1,14 @@
+{
+  "name": "twdiw-vp-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.twca.com.tw/sd-rd/scripts/twdiw-poc.git"
+  },
+  "private": true
+}

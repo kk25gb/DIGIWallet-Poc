@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: issuerApBackend
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: issuer_ap
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    open-in-view: false
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
+    default-schema: issuer_ap
+
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true
+
+# JWT Configuration (aligned with vc-handler: HS512, auth claim)
+app:
+  security:
+    jwt:
+      base64-secret: ${AP_JWT_BASE64_SECRET:}
+      token-validity-in-seconds: ${AP_JWT_TOKEN_VALIDITY:86400}
+      token-validity-in-seconds-for-remember-me: ${AP_JWT_REMEMBER_ME_VALIDITY:2592000}
+
+# Integration endpoints
+integration:
+  vc-handler:
+    base-url: ${VC_INTERNAL_URL:http://localhost:8082}
+  oid4vci-handler:
+    base-url: ${OID4VCI_INTERNAL_URL:http://localhost:8084}
+  oid4vci:
+    wallet-client-id: ${OID4VCI_WALLET_CLIENT_ID:moda_dw}
+    external-url: ${OID4VCI_EXTERNAL_URL:http://localhost:8084}
+  connect-timeout: 5000
+  read-timeout: 10000
+  callback:
+    # Access-Token shared with core-system for callback authentication
+    access-token: ${CALLBACK_ACCESS_TOKEN:}

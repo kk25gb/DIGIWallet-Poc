@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Create schema -->
+    <changeSet id="00000000000001-0" author="issuer-ap">
+        <sql>CREATE SCHEMA IF NOT EXISTS issuer_ap;</sql>
+    </changeSet>
+
+    <!-- ap_user table -->
+    <changeSet id="00000000000001-1" author="issuer-ap">
+        <createSequence sequenceName="ap_user_id_seq" schemaName="issuer_ap" startValue="1" incrementBy="1"/>
+
+        <createTable tableName="ap_user" schemaName="issuer_ap">
+            <column name="id" type="bigint" defaultValueSequenceNext="ap_user_id_seq">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="password_hash" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="varchar(50)" defaultValue="ROLE_OPERATOR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(20)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueComputed="now()"/>
+            <column name="last_modified_date" type="timestamp" defaultValueComputed="now()"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Initial data: default admin user -->
+    <!-- Password: BCrypt hash of "admin" -->
+    <changeSet id="00000000000001-2" author="issuer-ap">
+        <loadData tableName="ap_user" schemaName="issuer_ap"
+                  file="config/liquibase/data/ap_user.csv"
+                  separator=";">
+            <column name="id" type="numeric"/>
+            <column name="username" type="string"/>
+            <column name="password_hash" type="string"/>
+            <column name="authority" type="string"/>
+            <column name="status" type="string"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
