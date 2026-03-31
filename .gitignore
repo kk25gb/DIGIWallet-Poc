@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### issuer-ap frontend (minimal) ###
+/issuer-ap/frontend/node_modules/
+/issuer-ap/frontend/dist/
+/issuer-ap/frontend/.vite/
+/issuer-ap/frontend/.env.local
+/issuer-ap/frontend/.env.*.local
