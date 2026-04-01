@@ -34,12 +34,13 @@ app:
 # Integration endpoints
 integration:
   vc-handler:
-    base-url: ${VC_INTERNAL_URL:http://localhost:8082}
+    base-url: ${VC_INTERNAL_URL:http://192.168.74.25:8082}
   oid4vci-handler:
-    base-url: ${OID4VCI_INTERNAL_URL:http://localhost:8084}
+    base-url: ${OID4VCI_INTERNAL_URL:http://192.168.74.25:8084}
   oid4vci:
+    # 對應到 SDK 內部寫死的 client_id，必須保持一致
     wallet-client-id: ${OID4VCI_WALLET_CLIENT_ID:moda_dw}
-    external-url: ${OID4VCI_EXTERNAL_URL:http://localhost:8084}
+    external-url: ${OID4VCI_EXTERNAL_URL:http://192.168.74.25:8084}
   connect-timeout: 5000
   read-timeout: 10000
   callback:

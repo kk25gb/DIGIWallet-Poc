@@ -25,7 +25,7 @@ app:
   security:
     jwt:
       # Dev only - generate with: openssl rand -base64 64
-      base64-secret: ${AP_JWT_BASE64_SECRET:YTJkNGYxMjM0NTY3ODkwYWJjZGVmMDEyMzQ1Njc4OTBhYmNkZWYwMTIzNDU2Nzg5MGFiY2RlZjAxMjM0NTY3ODkwYWJjZGVmMDEyMzQ1Njc4OTBhYmNkZWYwMTIzNA==}
+      base64-secret: ${AP_JWT_BASE64_SECRET:abS7JX1RlFUYNjOX2d9x8WyFFBY+A5iJXjb9MuyIYK7f53MxCRgucLrxIDeUO0BWBN3T6V7nehNrzT52c1jFjg==}
 
 integration:
   callback:
